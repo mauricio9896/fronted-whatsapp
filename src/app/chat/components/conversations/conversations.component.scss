@@ -1,0 +1,146 @@
+$unidad  : 15px;
+$backgroud : white;
+$backgroud-chats: white;
+$color-span: rgba(0, 0, 0, 0.6);
+$color-primary : #002868;
+
+span{
+  font-size: $unidad;
+}
+
+.container{
+  padding: $unidad;
+  border-radius: 16px;
+  background-color: $backgroud;
+}
+
+.header{
+  height: 5vh;
+  color: $color-primary;
+}
+
+.container-chats{
+  width: $unidad*18;
+  height: 50vh;
+  overflow: hidden;
+  padding: 0px;
+}
+
+.search{
+  padding: $unidad;
+  margin: 0px;
+  mat-form-field{
+    width: 100%;
+  }
+}
+
+.chats{
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  // padding-right: 10px;
+  overflow-y: auto;
+  :hover{
+    cursor: pointer;
+    // background-color: blue;
+  }
+}
+
+.chat{
+  max-height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 10px 15px 10px 15px;
+  border-radius: 12px;
+  gap: $unidad;
+  background-color: $backgroud-chats;
+}
+
+.img{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+}
+
+.d-flex{
+  display: flex;
+}
+
+.d-flex-b{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container-chat{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+}
+
+.name{
+  max-height: 20px;
+  max-width: 136px;
+  overflow: hidden;
+  span{
+    color: $color-primary;
+    font-weight: 500;
+  }
+}
+
+.date{
+  max-height: 20px;
+  span{
+    font-size: $unidad*0.8;
+    color: $color-span;
+  }
+}
+
+.msg{
+  max-height: 20px;
+  max-width: 140px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  span{
+    font-size: $unidad*0.9;
+    color: $color-span;
+  }
+}
+
+.amount{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: $color-primary;
+  span{
+    font-size: $unidad*0.8;
+    color: white;
+  }
+}
+
+
+// scroll
+.chats::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chats::-webkit-scrollbar-track {
+  background-color: $backgroud;
+}
+
+.chats::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+}
+
