@@ -21,7 +21,7 @@ span{
 
 .container-chats{
   width: $unidad*18;
-  height: 50vh;
+  height: 45vh;
   overflow: hidden;
   padding: 0px;
 }
@@ -39,11 +39,10 @@ span{
   flex-direction: column;
   gap: 15px;
   height: 100%;
-  // padding-right: 10px;
   overflow-y: auto;
   :hover{
     cursor: pointer;
-    // background-color: blue;
+    background-color: #dae8ff;
   }
 }
 
@@ -55,6 +54,7 @@ span{
   border-radius: 12px;
   gap: $unidad;
   background-color: $backgroud-chats;
+  margin-right: 10px;
 }
 
 .img{
@@ -129,6 +129,16 @@ span{
   }
 }
 
+.cvs{
+  position: absolute;
+  right: 315px;
+  width: 500px;
+  height: 600px;
+  border-radius: 16px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: $backgroud;
+}
 
 // scroll
 .chats::-webkit-scrollbar {

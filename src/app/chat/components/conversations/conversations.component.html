@@ -1,11 +1,12 @@
+<div class="cvs">
+  <h1>conversacion</h1>
+</div>
 
 <div class="container">
   <div class="header">
     <h1>Chat</h1>
   </div>
   <div class="d-flex">
-
-
     <div class="container-chats">
       <div class="search">
         <mat-form-field class="example-form-field">
@@ -40,7 +41,7 @@
             />
           </div>
 
-          <div class="container-chat">
+          <div class="container-chat" (click)="viewChat(chat)">
             <div class="d-flex-b">
               <div class="name">
                 <span>{{ chat.name }}</span>

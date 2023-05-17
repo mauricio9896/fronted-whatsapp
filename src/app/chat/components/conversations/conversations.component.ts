@@ -21,7 +21,7 @@ export class ConversationsComponent implements OnInit {
     },
     {
       img: 'string',
-      name: 'Mauricio Buitrago',
+      name: 'Brayan Cadavid',
       date: '13 Mar',
       message: "Esto es un message",
       state: true,
@@ -29,7 +29,7 @@ export class ConversationsComponent implements OnInit {
     },
     {
       img: 'string',
-      name: 'Mauricio Buitrago Puerto',
+      name: 'Luis Vera ',
       date: '3 Mar',
       message: "Esto es un message de prueba",
       state: true,
@@ -37,84 +37,21 @@ export class ConversationsComponent implements OnInit {
     },
     {
       img: 'string',
-      name: 'Mauricio Buitrago',
+      name: 'Juan Pablo Murcia',
       date: '3 Mar',
       message: "Esto es un message de prueba",
       state: true,
       amount_message: 24
-    },
-    {
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },
-    {
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },
-    {
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },
-    {
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },{
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },{
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },{
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },{
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },{
-      img: 'string',
-      name: 'Mauricio Buitrago',
-      date: '3 Mar',
-      message: "Esto es un message de prueba",
-      state: true,
-      amount_message: 4
-    },
+    }
   ];
 
   constructor() {}
 
   ngOnInit(): void {}
+
+  viewChat(chat : chat){
+    console.log('name :>> ', chat.name);
+  }
 }
 
 export interface chat {
