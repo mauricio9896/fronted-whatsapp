@@ -3,14 +3,14 @@
   <div class="header">
     <div class="img">
       <img
-        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg"
+        [src]="chat.photo"
         alt="foto de perfil"
       />
     </div>
 
     <div class="container-title" routerLink="infoUser">
       <div class="name">
-        <span>Mauricio Buitrago</span>
+        <span>{{chat.name}}</span>
       </div>
       <div class="msg">
         <span>Información del usuario</span>

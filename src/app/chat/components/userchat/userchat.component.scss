@@ -30,10 +30,12 @@ $color-second : #dae8ff;
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-color: white;
   img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 1px solid $color-primary;
   }
 }
 

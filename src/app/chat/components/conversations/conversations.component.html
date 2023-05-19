@@ -1,6 +1,5 @@
 <div class="cvs" *ngIf="view_chat">
-  <app-userchat></app-userchat>
-  <!-- <router-outlet></router-outlet> -->
+  <app-userchat [chat]="chat"  ></app-userchat>
 </div>
 
 <div class="container">
@@ -12,7 +11,7 @@
       <div class="search">
         <mat-form-field class="example-form-field">
           <mat-label>Buscar</mat-label>
-          <input matInput type="text" [(ngModel)]="search_text" />
+          <input matInput type="text" (keyup)="filterConversations()" [(ngModel)]="search_text" />
           <button
             *ngIf="search_text"
             matSuffix
@@ -34,10 +33,10 @@
       </div>
 
       <div class="chats">
-        <div class="chat" *ngFor="let chat of chats">
+        <div class="chat" *ngFor="let chat of all_conversations">
           <div class="img">
             <img
-              src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg"
+              [src]="chat.photo"
               alt="foto de perfil"
             />
           </div>
@@ -62,6 +61,7 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 </div>

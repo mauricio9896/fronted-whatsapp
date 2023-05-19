@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
+import { allConversations } from '../../models/bodyModel.model';
 
 @Component({
   selector: 'app-userchat',
@@ -9,19 +10,15 @@ import { ChatService } from '../../services/chat.service';
 })
 export class UserchatComponent implements OnInit {
 
+  @Input() chat !: allConversations;
 
-  id: string = '';
-  search_text: string = '';
+  id !: string;
+  search_text !: string;
   view_chat: boolean = false;
 
-  constructor(private activatedRoute:ActivatedRoute, private service:ChatService, private router: Router) { }
+  constructor(private service:ChatService, private router: Router) { }
 
   ngOnInit(): void {
-
-    // this.activatedRoute.params.subscribe((userid)=>{
-    //   this.id=userid['id']
-
-    // })
     this.service.state_chat$.subscribe((state) => {
       this.view_chat = state;
     });

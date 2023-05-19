@@ -61,10 +61,12 @@ span{
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  background-color: white;
   img{
     width: 40px;
     height: 40px;
     border-radius: 50%;
+    border: 1px solid $color-primary;
   }
 }
 
@@ -135,7 +137,6 @@ span{
   width: 500px;
   height: 600px;
   border-radius: 16px;
-  text-align: center;
   background-color: white;
 }
 
