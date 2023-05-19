@@ -1,0 +1,74 @@
+<div class="container">
+  <!-- start header of chat -->
+  <div class="header">
+    <div class="img">
+      <img
+        src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg"
+        alt="foto de perfil"
+      />
+    </div>
+
+    <div class="container-title" routerLink="infoUser">
+      <div class="name">
+        <span>Mauricio Buitrago</span>
+      </div>
+      <div class="msg">
+        <span>Información del usuario</span>
+      </div>
+    </div>
+
+    <div class="collapse-btn" >
+      <button (click)="changeState()" >
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </div>
+
+  <div class="body">
+    <router-outlet></router-outlet>
+  </div>
+
+  <div class="footer">
+    <button
+        matSuffix
+        mat-icon-button
+        aria-label="Template"
+        routerLink="templatesChat"
+      >
+        <mat-icon>message</mat-icon>
+      </button>
+      <button
+        matSuffix
+        mat-icon-button
+        aria-label="Template"
+      >
+        <mat-icon> attach_file</mat-icon>
+      </button>
+    <div class="send-messages">
+      <input
+        type="text"
+        [(ngModel)]="search_text"
+        class="input-msg"
+        placeholder="Escribe un mensaje"
+      />
+      <button
+        *ngIf="search_text"
+        matSuffix
+        mat-icon-button
+        aria-label="Send message"
+        (click)="search_text = ''"
+      >
+        <mat-icon>send</mat-icon>
+      </button>
+      <button
+        *ngIf="!search_text"
+        matSuffix
+        mat-icon-button
+        aria-label="Send message"
+      >
+        <mat-icon>keyboard_voice</mat-icon>
+      </button>
+    </div>
+  </div>
+
+</div>

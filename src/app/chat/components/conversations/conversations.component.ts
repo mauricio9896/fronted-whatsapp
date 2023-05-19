@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-conversations',
@@ -8,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 export class ConversationsComponent implements OnInit {
 
   search_text = '';
+  view_chat : boolean = false;
 
   // DATA DE PRUEBA
   chats: chat[] = [
@@ -42,15 +45,83 @@ export class ConversationsComponent implements OnInit {
       message: "Esto es un message de prueba",
       state: true,
       amount_message: 24
-    }
+    },
+    {
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },
+    {
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },{
+      img: 'string',
+      name: 'Juan Pablo Murcia',
+      date: '3 Mar',
+      message: "Esto es un message de prueba",
+      state: true,
+      amount_message: 24
+    },
   ];
 
-  constructor() {}
+  constructor(private router:Router, private service: ChatService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+    this.service.state_chat$.subscribe((state) => {
+      this.view_chat = state;
+    });
+  }
+
+
+
+
 
   viewChat(chat : chat){
-    console.log('name :>> ', chat.name);
+    this.router.navigateByUrl('/home/chat/body')
+    this.service.changeStateChat(true);
   }
 }
 
