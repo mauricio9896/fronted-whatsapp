@@ -44,10 +44,12 @@ $color-second : #dae8ff;
     th{
       color: $color-primary;
       border: none;
+      padding: 0px;
     }
     td{
       color: $color-span;
       border: none;
+      padding: 0px;
     }
   }
 }
@@ -57,7 +59,7 @@ tr.example-detail-row {
 }
 
 tr.example-element-row:not(.example-expanded-row):hover {
-  background: $color-second;
+  background: whitesmoke;
   cursor: pointer;
 }
 
