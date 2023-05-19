@@ -20,7 +20,7 @@ $color-second : #dae8ff;
   max-height: 40px;
   display: flex;
   align-items: center;
-  padding: 10px 15px 10px 15px;
+  padding: 10px $unidad 10px $unidad;
   border-radius: 12px;
   gap: $unidad;
   background-color:$color-second;

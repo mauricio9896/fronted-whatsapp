@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { messagesModel } from '../../models/bodyModel.model';
 import { ChatService } from '../../services/chat.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-body-chats',
@@ -8,9 +9,10 @@ import { ChatService } from '../../services/chat.service';
   styleUrls: ['./body-chats.component.scss'],
 })
 export class BodyChatsComponent implements OnInit, OnDestroy {
+
   messages: messagesModel[] = [];
 
-  constructor(private service: ChatService, private elementRef: ElementRef) {}
+  constructor(private service: ChatService, private elementRef: ElementRef, private route : ActivatedRoute) {}
 
   ngOnInit(): void {
 

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: ConversationsComponent,
     children:[
       {
-        path: 'body',
+        path: 'body/:id',
         component: BodyChatsComponent,
       },
       {

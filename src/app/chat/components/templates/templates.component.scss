@@ -1,0 +1,105 @@
+$unidad  : 15px;
+$backgroud : white;
+$backgroud-chats: white;
+$color-span: rgba(0, 0, 0, 0.6);
+$color-primary : #002868;
+$color-second : #dae8ff;
+
+.container{
+  height: 100%;
+  max-height: 430;
+  overflow: hidden;
+  padding: 0px $unidad 0px $unidad;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 40px;
+  padding: 10px 0px 10px 0px;
+  color: $color-primary;
+  font-weight: 500;
+  button{
+    border: none;
+    background-color: transparent;
+    :hover{
+      cursor: pointer;
+    }
+    mat-icon{
+      font-size: 18px;
+      color: $color-primary;
+    }
+  }
+}
+
+.templates-table{
+  max-height: 330px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  table{
+    width: 100%;
+    th{
+      color: $color-primary;
+      border: none;
+    }
+    td{
+      color: $color-span;
+      border: none;
+    }
+  }
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: $color-second;
+  cursor: pointer;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+
+#paginator{
+  color: $color-primary;
+}
+
+//! prueba
+
+tr.example-detail-row {
+  height: 10;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 50px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
+}
