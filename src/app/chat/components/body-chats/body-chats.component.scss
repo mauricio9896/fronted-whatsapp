@@ -11,12 +11,10 @@ $color-second : #dae8ff;
   max-height: 430px;
   overflow-y: scroll;
   padding: 0px $unidad 0px $unidad;
-  scrollbar-width: none;
   &::-webkit-scrollbar {
     display:none
   }
 }
-
 #client{
   display: block;
   float: left;

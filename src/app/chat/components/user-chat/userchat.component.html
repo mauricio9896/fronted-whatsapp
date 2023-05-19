@@ -50,13 +50,14 @@
         [(ngModel)]="search_text"
         class="input-msg"
         placeholder="Escribe un mensaje"
+        (keyup)="sendMessage($event)"
       />
       <button
         *ngIf="search_text"
         matSuffix
         mat-icon-button
         aria-label="Send message"
-        (click)="search_text = ''"
+        (click)="sendMessage({state: true})"
       >
         <mat-icon>send</mat-icon>
       </button>

@@ -13,7 +13,7 @@ export class UserchatComponent implements OnInit {
   @Input() chat !: allConversations;
 
   id !: string;
-  search_text !: string;
+  search_text : string = '';
   view_chat: boolean = false;
 
   constructor(private service:ChatService, private router: Router) { }
@@ -29,4 +29,10 @@ export class UserchatComponent implements OnInit {
     this.service.changeStateChat(false);
   }
 
+  sendMessage(event : any ){
+    if((event.key === 'Enter' || event.keyCode === 13 || event.state === true) && this.search_text != '' ){
+      this.service.enviarMensaje({emitter: 'user', message: this.search_text});
+      this.search_text = "";
+    }
+  }
 }

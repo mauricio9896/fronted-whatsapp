@@ -1,6 +1,6 @@
 export interface messagesModel {
-  id: string;
-  text: string;
+  emitter: string;
+  message: string;
 }
 
 export interface allConversations {

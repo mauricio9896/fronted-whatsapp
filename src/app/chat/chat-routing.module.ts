@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BodyChatsComponent } from './components/body-chats/body-chats.component';
 import { InfoUserComponent } from './components/info-user/info-user.component';
 import { TemplatesComponent } from './components/templates/templates.component';
-import { ConversationsComponent } from './components/conversations/conversations.component';
+import { ConversationsComponent } from './components/chat/conversations.component';
 
 const routes: Routes = [
   {
