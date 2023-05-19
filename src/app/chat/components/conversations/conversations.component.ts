@@ -27,7 +27,6 @@ export class ConversationsComponent implements OnInit {
     });
   }
 
-
   viewChat(chat : allConversations){
     this.router.navigateByUrl('/home/chat/body')
     this.service.changeStateChat(true);
