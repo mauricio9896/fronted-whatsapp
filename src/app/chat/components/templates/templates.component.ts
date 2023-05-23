@@ -4,6 +4,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ChatService } from '../../services/chat.service';
 
 @Component({
   selector: 'app-templates',
@@ -32,16 +33,17 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   expandedElement: any | null;
 
 
-  constructor(private router : Router, private route : ActivatedRoute) {
-    const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
-    console.log('users :>> ', users);
-    this.dataSource = new MatTableDataSource(users);
+  constructor(private router : Router, private route : ActivatedRoute, private service : ChatService) {
+    this.dataSource = new MatTableDataSource();
   }
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     })
+
+    // consume el servicio para obtener las plantillas
+    this.dataSource.data = this.service.getTemplates()
   }
 
   navigate(){
@@ -61,51 +63,3 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
     }
   }
 }
-
-function createNewUser(id: number): any {
-  const name = NAMES[Math.round(Math.random() * (NAMES.length - 1))] +
-    ' ' +
-    NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) +
-    '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    selected: false
-  };
-}
-
-
-
-/** Constants used to fill up our data base. */
-const FRUITS: string[] = [
-  'blueberry',
-  'lychee',
-  'kiwi',
-  'mango',
-  'peach',
-  'lime',
-  'pomegranate',
-  'pineapple',
-];
-const NAMES: string[] = [
-  'Maia',
-  'Asher',
-  'Olivia',
-  'Atticus',
-  'Amelia',
-  'Jack',
-  'Charlotte',
-  'Theodore',
-  'Isla',
-  'Oliver',
-  'Isabella',
-  'Jasper',
-  'Cora',
-  'Levi',
-  'Violet',
-  'Arthur',
-  'Mia',
-  'Thomas',
-  'Elizabeth',
-];
