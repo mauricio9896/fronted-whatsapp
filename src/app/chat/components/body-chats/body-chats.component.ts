@@ -8,7 +8,7 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './body-chats.component.html',
   styleUrls: ['./body-chats.component.scss'],
 })
-export class BodyChatsComponent implements OnInit, OnDestroy {
+export class BodyChatsComponent implements OnInit, OnDestroy{
 
   messages: messagesModel[] = [];
 
@@ -21,8 +21,12 @@ export class BodyChatsComponent implements OnInit, OnDestroy {
 
     this.service.message$.subscribe((mensajes) => {
       this.messages.push(mensajes);
-      console.log('this.messages :>> ', this.messages);
       this.scrollToBottom();
+    });
+
+    this.route.paramMap.subscribe((params) => {
+      const id = params.get('id');
+      console.log('id :>> ', id);
     });
   }
 
