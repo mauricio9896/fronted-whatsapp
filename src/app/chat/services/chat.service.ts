@@ -7,7 +7,6 @@ import { allConversations, messagesModel } from '../models/bodyModel.model';
   providedIn: 'root',
 })
 export class ChatService {
-
   private state_chat = new Subject<boolean>();
   state_chat$ = this.state_chat.asObservable();
 
@@ -17,61 +16,81 @@ export class ChatService {
   //! DATA DE PRUEBA
   private chats: allConversations[] = [
     {
-      id:'1',
-      number: "573183833578",
-      photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg',
+      id: '1',
+      number: '573183833578',
+      photo:
+        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_03.jpg',
       name: 'Mauricio Buitrago',
       date: '3 Mar',
-      message: "Esto es un message",
+      message: 'Esto es un message',
       state: true,
-      amount_message: 4
+      amount_message: 4,
     },
     {
-      id:'2',
-      number: "573185454867",
-      photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg',
+      id: '2',
+      number: '573185454867',
+      photo:
+        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_02.jpg',
       name: 'Brayan Cadavid',
       date: '13 Mar',
-      message: "Esto es un message",
+      message: 'Esto es un message',
       state: true,
-      amount_message: 4
+      amount_message: 4,
     },
     {
-      id:'3',
-      number: "573183833578",
-      photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg',
+      id: '3',
+      number: '573183833578',
+      photo:
+        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_01.jpg',
       name: 'Luis Vera ',
       date: '3 Mar',
-      message: "Esto es un message de prueba",
+      message: 'Esto es un message de prueba',
       state: true,
-      amount_message: 4
+      amount_message: 4,
     },
     {
-      id:'4',
-      number: "573114744623",
-      photo: 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg',
+      id: '4',
+      number: '573114744623',
+      photo:
+        'https://s3-us-west-2.amazonaws.com/s.cdpn.io/195612/chat_avatar_10.jpg',
       name: 'Juan Pablo Murcia',
       date: '3 Mar',
-      message: "Esto es un message de prueba",
+      message: 'Esto es un message de prueba',
       state: true,
-      amount_message: 24
+      amount_message: 24,
     },
   ];
-
-  private messages : messagesModel[] = [];
+  private messages: messagesModel[] = [];
+  private templates: any[] = [
+    {
+      id: '1',
+      name: 'hello_world',
+    },
+    {
+      id: '2',
+      name: 'first_message_test',
+    },
+    {
+      id: '3',
+      name: 'second_template',
+    }
+  ];
 
   constructor(private http: HttpClient) {}
 
-  getAllConversations():allConversations[]{
+  getAllConversations(): allConversations[] {
     return this.chats;
   }
 
-  getConversation(){
+  getConversation() {
     return this.messages;
   }
+  getTemplates() {
+    return this.templates;
+  }
 
-  changeStateChat(template : boolean){
-    this.state_chat.next(template)
+  changeStateChat(template: boolean) {
+    this.state_chat.next(template);
   }
 
   enviarMensaje(message: messagesModel) {
@@ -79,10 +98,10 @@ export class ChatService {
   }
 
   prueba(): Observable<any> {
-    return this.http.get("http://localhost:3000/sendTemplate");
+    return this.http.get('http://localhost:3000/sendTemplate');
   }
 
-  sendMessage(message : messagesModel):Observable<any> {
-    return this.http.post("http://localhost:3000/sendMessage",{message});
+  sendMessage(message: messagesModel): Observable<any> {
+    return this.http.post('http://localhost:3000/sendMessage', { message });
   }
 }
