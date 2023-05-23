@@ -22,6 +22,7 @@ export interface templateModel {
   number : string;
   language: string;
   components : componentsModel[];
+  message : string;
 }
 
 export interface componentsModel {

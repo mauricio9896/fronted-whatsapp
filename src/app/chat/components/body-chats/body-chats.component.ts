@@ -21,6 +21,7 @@ export class BodyChatsComponent implements OnInit, OnDestroy {
 
     this.service.message$.subscribe((mensajes) => {
       this.messages.push(mensajes);
+      console.log('this.messages :>> ', this.messages);
       this.scrollToBottom();
     });
   }

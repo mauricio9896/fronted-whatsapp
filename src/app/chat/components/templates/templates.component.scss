@@ -51,6 +51,19 @@ $color-second : #dae8ff;
       border: none;
       padding: 0px;
     }
+
+    td button {
+      background-color: transparent;
+      border: none;
+      :hover{
+        cursor: pointer;
+      }
+    }
+
+    td button mat-icon {
+      font-size: 15px;
+      color: $color-primary;
+    }
   }
 }
 

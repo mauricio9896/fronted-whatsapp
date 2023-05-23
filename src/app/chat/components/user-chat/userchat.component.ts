@@ -39,10 +39,10 @@ export class UserchatComponent implements OnInit {
         number: this.chat.number,
       };
 
-      this.service.enviarMensaje(message);
+      this.service.publicMessage(message);
 
-      this.service.sendMessage(message).subscribe((message) => {
-        console.log('message :>> ', message);
+      this.service.sendMessage(message).subscribe((res) => {
+        console.log('res :>> ', res);
       });
 
       this.input_text = '';

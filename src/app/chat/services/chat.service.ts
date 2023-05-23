@@ -73,6 +73,7 @@ export class ChatService {
           parameters:[]
         }
       ],
+      message: 'Welcome and congratulations!! This message demonstrates your ability to send a WhatsApp message notification from the Cloud API, hosted by Meta. Thank you for taking the time to test with us.'
     },
     {
       id: '2',
@@ -85,6 +86,7 @@ export class ChatService {
           parameters:[]
         }
       ],
+      message: 'Hola Mauricio , espero te encuentres muy bien Me gustaría felictarte por todo el conocimiento que has estado adquiriendo'
     },
     {
       id: '3',
@@ -108,6 +110,7 @@ export class ChatService {
           }
         ]
       }],
+      message: 'hola {{1}} , esta es una plantilla de prueba con variable, {{2}} segunda variable y por ultimo {{3}} tercera variable'
     }
   ];
 
@@ -128,7 +131,7 @@ export class ChatService {
     this.state_chat.next(template);
   }
 
-  enviarMensaje(message: messagesModel) {
+  publicMessage(message: messagesModel) {
     this.messageSubject.next(message);
   }
 

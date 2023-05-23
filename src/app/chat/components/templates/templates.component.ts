@@ -55,8 +55,20 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   }
 
   sendTemplate(template:templateModel){
+    // falta identificar el numero al que se va a enviar el template
     this.service.sendTemplate(template).subscribe(data =>{
-      console.log('data :>> ', data);
+      const message = {
+        emitter: 'user',
+        message: template.message,
+        id: this.id,
+        number: template.number,
+      };
+
+      setTimeout(() => {
+        this.service.publicMessage(message);
+      }, 10);
+
+      this.navigate();
     })
   }
 }
