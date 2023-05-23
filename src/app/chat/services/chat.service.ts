@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import { allConversations, messagesModel } from '../models/bodyModel.model';
+import { allConversations, messagesModel, templateModel } from '../models/bodyModel.model';
 
 @Injectable({
   providedIn: 'root',
@@ -61,18 +61,53 @@ export class ChatService {
     },
   ];
   private messages: messagesModel[] = [];
-  private templates: any[] = [
+  private templates: templateModel[] = [
     {
       id: '1',
       name: 'hello_world',
+      number: '573183833578',
+      language: 'en_US',
+      components:[
+        {
+          type: "body",
+          parameters:[]
+        }
+      ],
     },
     {
       id: '2',
       name: 'first_message_test',
+      number: '573183833578',
+      language: 'es_MX',
+      components:[
+        {
+          type: "body",
+          parameters:[]
+        }
+      ],
     },
     {
       id: '3',
       name: 'second_template',
+      number: '573183833578',
+      language: 'es',
+      components:[{
+        type: "body",
+        parameters:[
+          {
+            type: "text",
+            text: "MAURICIO BUITRAGO"
+          },
+          {
+            type: "text",
+            text: "SEGUNDA VARIABLE"
+          },
+          {
+            type: "text",
+            text: "TERCERA VARIABLE"
+          }
+        ]
+      }],
     }
   ];
 
@@ -97,11 +132,11 @@ export class ChatService {
     this.messageSubject.next(message);
   }
 
-  prueba(): Observable<any> {
-    return this.http.get('http://localhost:3000/sendTemplate');
+  sendTemplate(template : templateModel): Observable<any> {
+    return this.http.post('http://localhost:3000/sendTemplate', {template:JSON.stringify(template)});
   }
 
   sendMessage(message: messagesModel): Observable<any> {
-    return this.http.post('http://localhost:3000/sendMessage', { message });
+    return this.http.post('http://localhost:3000/sendMessage', message);
   }
 }

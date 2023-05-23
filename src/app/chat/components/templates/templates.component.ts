@@ -1,22 +1,15 @@
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ChatService } from '../../services/chat.service';
+import { templateModel } from '../../models/bodyModel.model';
 
 @Component({
   selector: 'app-templates',
   templateUrl: './templates.component.html',
   styleUrls: ['./templates.component.scss'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),
-  ],
 })
 export class TemplatesComponent implements OnInit, AfterViewInit  {
 
@@ -27,10 +20,8 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   search_text : string = "";
 
   //! variables de prueba
-  columnsToDisplay : any[] = ['name', 'selected'];
+  displayedColumns : any[] = ['name', 'selected'];
   dataSource!: MatTableDataSource<any>;
-  columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
-  expandedElement: any | null;
 
 
   constructor(private router : Router, private route : ActivatedRoute, private service : ChatService) {
@@ -61,5 +52,11 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
+  }
+
+  sendTemplate(template:templateModel){
+    this.service.sendTemplate(template).subscribe(data =>{
+      console.log('data :>> ', data);
+    })
   }
 }
