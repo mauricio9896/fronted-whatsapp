@@ -12,7 +12,6 @@ export class UserchatComponent implements OnInit {
 
   @Input() chat !: allConversations;
 
-  id !: string;
   search_text : string = '';
   view_chat: boolean = false;
 
@@ -34,5 +33,9 @@ export class UserchatComponent implements OnInit {
       this.service.enviarMensaje({emitter: 'user', message: this.search_text});
       this.search_text = "";
     }
+  }
+
+  navigate(ruta: string){
+    this.router.navigate([`/home/chat/${ruta}`, this.chat.id])
   }
 }

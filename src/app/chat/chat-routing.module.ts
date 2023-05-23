@@ -15,11 +15,11 @@ const routes: Routes = [
         component: BodyChatsComponent,
       },
       {
-        path:'infoUser',
+        path:'infoUser/:id',
         component: InfoUserComponent
       },
       {
-        path:'templatesChat',
+        path:'templatesChat/:id',
         component: TemplatesComponent
       },
     ]

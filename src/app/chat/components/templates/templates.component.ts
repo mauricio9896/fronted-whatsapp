@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-templates',
@@ -22,24 +22,30 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
+  id !: any;
+  search_text : string = "";
+
+  //! variables de prueba
   columnsToDisplay : any[] = ['name', 'selected'];
   dataSource!: MatTableDataSource<any>;
   columnsToDisplayWithExpand = [...this.columnsToDisplay, 'expand'];
   expandedElement: any | null;
 
-  search_text : string = "";
 
-  constructor(private router : Router) {
+  constructor(private router : Router, private route : ActivatedRoute) {
     const users = Array.from({length: 100}, (_, k) => createNewUser(k + 1));
     console.log('users :>> ', users);
     this.dataSource = new MatTableDataSource(users);
   }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params => {
+      this.id = params.get('id');
+    })
   }
 
   navigate(){
-    this.router.navigate(["home/chat/body", 1])
+    this.router.navigate(["home/chat/body", this.id])
   }
 
   ngAfterViewInit() {

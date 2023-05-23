@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-info-user',
@@ -8,12 +8,17 @@ import { Router } from '@angular/router';
 })
 export class InfoUserComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  id !: any;
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.paramMap.subscribe(params =>{
+       this.id = params.get('id');
+    })
   }
 
   navigate(){
-    this.router.navigateByUrl('home/chat/body')
+    this.router.navigate(['home/chat/body', this.id])
   }
 }

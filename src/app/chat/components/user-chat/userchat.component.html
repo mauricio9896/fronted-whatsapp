@@ -8,7 +8,7 @@
       />
     </div>
 
-    <div class="container-title" routerLink="infoUser">
+    <div class="container-title" (click)="navigate('infoUser')" >
       <div class="name">
         <span>{{chat.name}}</span>
       </div>
@@ -33,7 +33,7 @@
         matSuffix
         mat-icon-button
         aria-label="Template"
-        routerLink="templatesChat"
+        (click)="navigate('templatesChat')"
       >
         <mat-icon>message</mat-icon>
       </button>
