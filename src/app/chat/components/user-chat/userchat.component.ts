@@ -6,16 +6,15 @@ import { allConversations } from '../../models/bodyModel.model';
 @Component({
   selector: 'app-userchat',
   templateUrl: './userchat.component.html',
-  styleUrls: ['./userchat.component.scss']
+  styleUrls: ['./userchat.component.scss'],
 })
 export class UserchatComponent implements OnInit {
+  @Input() chat!: allConversations;
 
-  @Input() chat !: allConversations;
-
-  search_text : string = '';
+  input_text: string = '';
   view_chat: boolean = false;
 
-  constructor(private service:ChatService, private router: Router) { }
+  constructor(private service: ChatService, private router: Router) {}
 
   ngOnInit(): void {
     this.service.state_chat$.subscribe((state) => {
@@ -23,19 +22,34 @@ export class UserchatComponent implements OnInit {
     });
   }
 
-  changeState(){
+  changeState() {
     this.router.navigateByUrl('/home/chat');
     this.service.changeStateChat(false);
   }
 
-  sendMessage(event : any ){
-    if((event.key === 'Enter' || event.keyCode === 13 || event.state === true) && this.search_text != '' ){
-      this.service.enviarMensaje({emitter: 'user', message: this.search_text});
-      this.search_text = "";
+  sendMessage(event: any) {
+    if (
+      (event.key === 'Enter' || event.keyCode === 13 || event.state === true) &&
+      this.input_text != ''
+    ) {
+      const message = {
+        emitter: 'user',
+        message: this.input_text,
+        id: this.chat.id,
+        number: this.chat.number,
+      };
+
+      this.service.enviarMensaje(message);
+
+      this.service.sendMessage(message).subscribe((message) => {
+        console.log('message :>> ', message);
+      });
+
+      this.input_text = '';
     }
   }
 
-  navigate(ruta: string){
-    this.router.navigate([`/home/chat/${ruta}`, this.chat.id])
+  navigate(ruta: string) {
+    this.router.navigate([`/home/chat/${ruta}`, this.chat.id]);
   }
 }

@@ -47,13 +47,13 @@
     <div class="send-messages">
       <input
         type="text"
-        [(ngModel)]="search_text"
+        [(ngModel)]="input_text"
         class="input-msg"
         placeholder="Escribe un mensaje"
         (keyup)="sendMessage($event)"
       />
       <button
-        *ngIf="search_text"
+        *ngIf="input_text"
         matSuffix
         mat-icon-button
         aria-label="Send message"
@@ -62,7 +62,7 @@
         <mat-icon>send</mat-icon>
       </button>
       <button
-        *ngIf="!search_text"
+        *ngIf="!input_text"
         matSuffix
         mat-icon-button
         aria-label="Send message"
