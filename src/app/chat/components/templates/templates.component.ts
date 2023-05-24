@@ -21,7 +21,7 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
 
   //! variables de prueba
   displayedColumns : any[] = ['name','vista' ,'selected'];
-  dataSource!: MatTableDataSource<any>;
+  dataSource!: MatTableDataSource<templateModel>;
 
 
   constructor(private router : Router, private route : ActivatedRoute, private service : ChatService) {
@@ -34,8 +34,9 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
       this.id = params.get('id');
     })
 
-    // consume el servicio para obtener las plantillas
-    this.dataSource.data = this.service.getTemplates()
+    this.service.getTemplates().subscribe(templates => {
+      this.dataSource.data = templates;
+    });
   }
 
   navigate(){

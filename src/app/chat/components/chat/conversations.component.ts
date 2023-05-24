@@ -19,8 +19,9 @@ export class ConversationsComponent implements OnInit {
 
   ngOnInit(): void {
 
-    // consume el service para obtener todas las conversaciones
-    this.all_conversations = this.service.getAllConversations();
+    this.service.getAllConversations().subscribe(res=>{
+      this.all_conversations = res;
+    })
 
     this.service.state_chat$.subscribe((state) => {
       this.view_chat = state;
