@@ -16,9 +16,6 @@ export class BodyChatsComponent implements OnInit, OnDestroy{
 
   ngOnInit(): void {
 
-    this.messages = this.service.getConversation();
-    this.scrollToBottom();
-
     this.service.message$.subscribe((mensajes) => {
       this.messages.push(mensajes);
       this.scrollToBottom();
@@ -26,7 +23,14 @@ export class BodyChatsComponent implements OnInit, OnDestroy{
 
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id');
-      console.log('id :>> ', id);
+      if( Number(id) > 0 ){
+        console.log('id :>> ', id);
+
+        // consume servicio
+        this.messages = this.service.getConversation();
+        this.messages = [];
+        this.scrollToBottom();
+      }
     });
   }
 

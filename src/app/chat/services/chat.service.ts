@@ -7,6 +7,7 @@ import { allConversations, messagesModel, templateModel } from '../models/bodyMo
   providedIn: 'root',
 })
 export class ChatService {
+
   private state_chat = new Subject<boolean>();
   state_chat$ = this.state_chat.asObservable();
 
