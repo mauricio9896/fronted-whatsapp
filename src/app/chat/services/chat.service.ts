@@ -28,8 +28,8 @@ export class ChatService {
     return this.http.get<allConversations[]>('http://localhost:3000/conversations');
   }
 
-  getConversation(id:string){
-    return this.http.get<any>(`http://localhost:3000/conversation/${id}`);
+  getInfoUser(id:string){
+    return this.http.get<any>(`http://localhost:3000/infoUser/${id}`);
   }
 
   getTemplates():Observable<templateModel[]>{
@@ -43,4 +43,5 @@ export class ChatService {
   sendMessage(message: messagesModel): Observable<any> {
     return this.http.post('http://localhost:3000/sendMessage', message);
   }
+
 }

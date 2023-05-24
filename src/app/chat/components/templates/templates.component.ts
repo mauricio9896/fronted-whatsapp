@@ -19,7 +19,6 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   id !: any;
   search_text : string = "";
 
-  //! variables de prueba
   displayedColumns : any[] = ['name','vista' ,'selected'];
   dataSource!: MatTableDataSource<templateModel>;
 
@@ -59,21 +58,22 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   sendTemplate(template:templateModel){
 
     template.id = this.id;
-    template.number = '573183833578' //! ESTABLECER EL NUMERO CORRESPONDIENTE
+    this.service.getInfoUser(this.id).subscribe(user => {
+      template.number = user.number;
+      this.service.sendTemplate(template).subscribe(data =>{
+        const message = {
+          emitter: 'user',
+          message: template.message,
+          id: this.id,
+          number: template.number,
+        };
 
-    this.service.sendTemplate(template).subscribe(data =>{
-      const message = {
-        emitter: 'user',
-        message: template.message,
-        id: this.id,
-        number: template.number,
-      };
+        setTimeout(() => {
+          this.service.publicMessage(message);
+        }, 10);
 
-      setTimeout(() => {
-        this.service.publicMessage(message);
-      }, 10);
-
-      this.navigate();
-    })
+        this.navigate();
+      });
+    });
   }
 }

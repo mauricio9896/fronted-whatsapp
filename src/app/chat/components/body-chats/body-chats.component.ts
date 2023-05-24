@@ -24,8 +24,7 @@ export class BodyChatsComponent implements OnInit, OnDestroy{
     this.route.paramMap.subscribe((params) => {
       const id = params.get('id') || '';
       if( Number(id) > 0 ){
-        this.service.getConversation(id.toString()).subscribe((conversation) => {
-          console.log('conversation :>> ', conversation);
+        this.service.getInfoUser(id.toString()).subscribe((conversation) => {
           this.messages = [];
           this.messages = conversation.conversacion;
         })
