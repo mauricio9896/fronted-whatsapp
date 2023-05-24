@@ -1,4 +1,8 @@
 <div id="chatContainer" class="container">
+  <div class="start-cvs" *ngIf="messages.length === 0 ">
+    <span>Inicia una conversación con una plantilla</span>
+  </div>
+
   <div *ngFor="let msg of messages" >
     <p [id]="msg.emitter">
       {{msg.message}}

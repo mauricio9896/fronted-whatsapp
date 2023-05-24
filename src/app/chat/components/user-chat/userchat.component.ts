@@ -28,6 +28,7 @@ export class UserchatComponent implements OnInit {
   }
 
   sendMessage(event: any) {
+
     if (
       (event.key === 'Enter' || event.keyCode === 13 || event.state === true) &&
       this.input_text != ''
@@ -42,7 +43,7 @@ export class UserchatComponent implements OnInit {
       this.service.publicMessage(message);
 
       this.service.sendMessage(message).subscribe((res) => {
-        console.log('res :>> ', res);
+
       });
 
       this.input_text = '';
