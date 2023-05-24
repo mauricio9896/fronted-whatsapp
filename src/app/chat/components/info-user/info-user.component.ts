@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './info-user.component.html',
   styleUrls: ['./info-user.component.scss']
 })
-export class InfoUserComponent implements OnInit {
+export class InfoUserComponent implements OnInit   {
 
   id !: any;
 
@@ -22,3 +22,4 @@ export class InfoUserComponent implements OnInit {
     this.router.navigate(['home/chat/body', this.id])
   }
 }
+

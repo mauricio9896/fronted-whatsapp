@@ -1,0 +1,36 @@
+$unidad  : 15px;
+$backgroud : white;
+$backgroud-chats: white;
+$color-span: rgba(0, 0, 0, 0.6);
+$color-primary : #002868;
+$color-second : #dae8ff;
+
+.container{
+  height: 100%;
+  max-height: 430;
+  overflow: hidden;
+  padding: 0px $unidad 0px $unidad;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-height: 40px;
+  padding: 10px 0px 10px 0px;
+  color: $color-primary;
+  font-weight: 500;
+  button{
+    border: none;
+    background-color: transparent;
+    :hover{
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+    mat-icon{
+      font-size: 18px;
+      color: $color-primary;
+    }
+  }
+}
