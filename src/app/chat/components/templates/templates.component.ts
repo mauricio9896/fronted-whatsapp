@@ -57,7 +57,10 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   }
 
   sendTemplate(template:templateModel){
-    // falta identificar el numero al que se va a enviar el template
+
+    template.id = this.id;
+    template.number = '573183833578' //! ESTABLECER EL NUMERO CORRESPONDIENTE
+
     this.service.sendTemplate(template).subscribe(data =>{
       const message = {
         emitter: 'user',

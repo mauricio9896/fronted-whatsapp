@@ -28,8 +28,8 @@ export class ChatService {
     return this.http.get<allConversations[]>('http://localhost:3000/conversations');
   }
 
-  getConversation(){
-    return []
+  getConversation(id:string){
+    return this.http.get<any>(`http://localhost:3000/conversation/${id}`);
   }
 
   getTemplates():Observable<templateModel[]>{

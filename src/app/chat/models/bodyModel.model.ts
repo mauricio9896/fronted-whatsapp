@@ -18,11 +18,13 @@ export interface allConversations {
 
 export interface templateModel {
   id: string;
+  id_template: string;
   name: string;
   number : string;
   language: string;
   components : componentsModel[];
   message : string;
+  emitter : string;
 }
 
 export interface componentsModel {

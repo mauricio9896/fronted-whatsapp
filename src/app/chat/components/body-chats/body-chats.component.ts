@@ -22,13 +22,14 @@ export class BodyChatsComponent implements OnInit, OnDestroy{
     });
 
     this.route.paramMap.subscribe((params) => {
-      const id = params.get('id');
+      const id = params.get('id') || '';
       if( Number(id) > 0 ){
-        console.log('id :>> ', id);
+        this.service.getConversation(id.toString()).subscribe((conversation) => {
+          console.log('conversation :>> ', conversation);
+          this.messages = [];
+          this.messages = conversation.conversacion;
+        })
 
-        // consume servicio
-        this.messages = this.service.getConversation();
-        this.messages = [];
         this.scrollToBottom();
       }
     });
