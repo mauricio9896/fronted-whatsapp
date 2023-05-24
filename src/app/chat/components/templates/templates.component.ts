@@ -20,7 +20,7 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   search_text : string = "";
 
   //! variables de prueba
-  displayedColumns : any[] = ['name', 'selected'];
+  displayedColumns : any[] = ['name','vista' ,'selected'];
   dataSource!: MatTableDataSource<any>;
 
 
@@ -29,6 +29,7 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   }
 
   ngOnInit(): void {
+
     this.route.paramMap.subscribe(params => {
       this.id = params.get('id');
     })

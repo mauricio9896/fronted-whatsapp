@@ -24,6 +24,8 @@ $color-second : #dae8ff;
     border: none;
     background-color: transparent;
     :hover{
+      border-radius: 50%;
+      background-color: rgba(0, 0, 0, 0.1);
       cursor: pointer;
     }
     mat-icon{
@@ -32,7 +34,6 @@ $color-second : #dae8ff;
     }
   }
 }
-
 .templates-table{
   max-height: 330px;
   overflow: hidden;
@@ -44,12 +45,12 @@ $color-second : #dae8ff;
     th{
       color: $color-primary;
       border: none;
-      padding: 0px;
+      padding: 7px;
     }
     td{
       color: $color-span;
       border: none;
-      padding: 0px;
+      padding: 7px;
     }
 
     td button {
@@ -64,6 +65,16 @@ $color-second : #dae8ff;
       font-size: 15px;
       color: $color-primary;
     }
+  }
+}
+
+.view-message{
+  height: 80px;
+  max-height: 80px;
+  overflow-y: auto;
+  text-align: justify;
+  &::-webkit-scrollbar {
+    display:none
   }
 }
 

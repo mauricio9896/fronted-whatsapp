@@ -154,16 +154,12 @@ $color-second : #dae8ff;
     font-size: 17px;
     color: white;
   }
+}
 
-  // .input-msg{
-  //   width: 80%;
-  //   height: 25px;
-  //   border-radius: 8px;
-  //   padding: 0px $unidad 0px $unidad;
-  //   border: none;
-  //   margin-right: $unidad;
-  //   outline: none;
-  //   overflow-y: scroll;
-  //   resize:vertical;
-  // }
+
+button{
+  :hover{
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.1)
+  }
 }

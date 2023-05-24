@@ -41,7 +41,7 @@
     </div>
 
     <div class="templates-table">
-      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
 
         <!-- Name Column -->
         <ng-container matColumnDef="name">
@@ -49,11 +49,21 @@
           <td mat-cell *matCellDef="let element">{{ element.name }}</td>
         </ng-container>
 
+        <!-- Name Column -->
+        <ng-container matColumnDef="vista">
+          <th mat-header-cell *matHeaderCellDef>Vista</th>
+          <td mat-cell *matCellDef="let element">
+            <div class="view-message">
+              {{ element.message }}
+            </div>
+          </td>
+        </ng-container>
+
         <!-- Weight Column -->
         <ng-container matColumnDef="selected">
           <th mat-header-cell *matHeaderCellDef></th>
           <td mat-cell *matCellDef="let element">
-            <button (click)="sendTemplate(element)">
+            <button (click)="sendTemplate(element)" matTooltip="Enviar plantilla">
               <mat-icon>send</mat-icon>
             </button>
           </td>
@@ -65,7 +75,7 @@
 
       <mat-paginator
         id="paginator"
-        [pageSizeOptions]="[4]"
+        [pageSizeOptions]="[2]"
         aria-label="Select page of users"
       ></mat-paginator>
     </div>
