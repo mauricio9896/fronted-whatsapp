@@ -23,8 +23,7 @@ export class UserchatComponent implements OnInit {
   }
 
   changeState() {
-    // this.router.navigateByUrl('/home/chat');
-    this.router.navigate([{ outlets: { s: ['msg'] } }]);
+    this.router.navigate(['home',{ outlets: { s: ['msg'] } }]);
     this.service.changeStateChat(false);
   }
 
@@ -52,8 +51,6 @@ export class UserchatComponent implements OnInit {
   }
 
   navigate(ruta: string) {
-    // this.router.navigate([`/home/chat/${ruta}`, this.chat.id]);
-    this.router.navigate([{ outlets: { s: ['msg',ruta, this.chat.id] } }]);
-
+    this.router.navigate(['home',{ outlets: { s: ['msg',ruta, this.chat.id] } }]);
   }
 }

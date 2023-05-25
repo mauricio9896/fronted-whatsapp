@@ -19,8 +19,7 @@ export class InfoUserComponent implements OnInit   {
   }
 
   navigate(){
-    this.router.navigate([{ outlets: { s: ['msg','body', this.id] } }]);
-    // this.router.navigate(['home/chat/body', this.id])
+    this.router.navigate(['home',{ outlets: { s: ['msg','body', this.id] } }]);
   }
 }
 
