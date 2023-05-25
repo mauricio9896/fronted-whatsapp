@@ -39,7 +39,9 @@ export class TemplatesComponent implements OnInit, AfterViewInit  {
   }
 
   navigate(){
-    this.router.navigate(["home/chat/body", this.id])
+    // this.router.navigate(["home/chat/body", this.id])
+    this.router.navigate([{ outlets: { s: ['msg','body', this.id] } }]);
+
   }
 
   ngAfterViewInit() {

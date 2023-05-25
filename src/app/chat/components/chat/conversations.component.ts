@@ -29,7 +29,7 @@ export class ConversationsComponent implements OnInit {
   }
 
   viewChat(chat : allConversations){
-    this.router.navigate(['/home/chat/body', chat.id])
+    this.router.navigate([{ outlets: { s: ['msg','body', chat.id] } }]);
     this.service.changeStateChat(true);
     this.chat = chat;
   }

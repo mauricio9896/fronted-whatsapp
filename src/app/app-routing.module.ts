@@ -1,17 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardModule } from './dashboard/dashboard.module';
 
-//Lazy loading
 const routes: Routes = [
-
   {
-    path:"home",
-    loadChildren: ()=> import('./dashboard/dashboard.module').then(m=>m.DashboardModule)
+    path: 'home',
+    loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule)
+  },
+  {
+    path: 'msg',
+    loadChildren: () => import('./chat/chat.module').then((m) => m.ChatModule),
+    outlet: 's'
   },
   {
     path:'**',
-    redirectTo:'home'
+    redirectTo:'/home/productos'
   },
 ];
 
